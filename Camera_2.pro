@@ -31,3 +31,10 @@ INCLUDEPATH += $$PWD/
 DEPENDPATH += $$PWD/
 
 win32:!win32-g++: PRE_TARGETDEPS += $$PWD/lib/mvDeviceManager.lib
+
+win32: LIBS += -L$$PWD/lib/ -lmvDisplay
+
+INCLUDEPATH += $$PWD/
+DEPENDPATH += $$PWD/
+
+win32:!win32-g++: PRE_TARGETDEPS += $$PWD/lib/mvDisplay.lib
