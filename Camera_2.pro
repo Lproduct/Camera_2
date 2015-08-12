@@ -1,40 +1,52 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2015-07-09T17:04:29
+# Project created by QtCreator 2015-07-17T15:58:07
 #
 #-------------------------------------------------
 
-QT       += core
+QT       += core gui
 
-QT       -= gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Camera_2
-CONFIG   += console
-CONFIG   -= app_bundle
-
+TARGET = CannyStill2Qt
+CONFIG += resources_big
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp\
+        frmmain.cpp
 
-HEADERS += \
-    Common/exampleHelper.h \
-    mvIMPACT_CPP/mvIMPACT_acquire.h \
-    mvDisplay/Include/mvIMPACT_acquire_display.h \
-    mvDeviceManager/Include/mvDeviceManager.h \
-    DriverBase/Include/mvDriverBaseEnums.h \
-    mvPropHandling/Include/mvPropHandlingDatatypes.h
+HEADERS  += frmmain.h \
+    camera_driver/Common/exampleHelper.h
 
-win32: LIBS += -L$$PWD/lib/ -lmvDeviceManager
+FORMS    += frmmain.ui
 
-INCLUDEPATH += $$PWD/
-DEPENDPATH += $$PWD/
+INCLUDEPATH += C:\\Users\\User\\Lvil\\Work\\AIEA_Camera\\opencv\\build\\include
 
-win32:!win32-g++: PRE_TARGETDEPS += $$PWD/lib/mvDeviceManager.lib
+LIBS += -LC:\\Users\\User\\Lvil\\Work\\AIEA_Camera\\mybuild2\\lib\\Debug \
+-lopencv_calib3d2411d \
+-lopencv_contrib2411d \
+-lopencv_core2411d \
+-lopencv_features2d2411d \
+-lopencv_flann2411d \
+-lopencv_gpu2411d \
+-lopencv_haartraining_engined \
+-lopencv_highgui2411d \
+-lopencv_imgproc2411d \
+-lopencv_legacy2411d \
+-lopencv_ml2411d \
+-lopencv_nonfree2411d \
+-lopencv_objdetect2411d \
+-lopencv_ocl2411d \
+-lopencv_photo2411d \
+-lopencv_stitching2411d \
+-lopencv_superres2411d \
+-lopencv_ts2411d \
+-lopencv_video2411d \
+-lopencv_videostab2411d
 
-win32: LIBS += -L$$PWD/lib/ -lmvDisplay
+INCLUDEPATH += C:\\Users\\User\\Lvil\\Work\\AIEA_Camera\\Qt5.4_2\\Camera_2\\camera_driver
 
-INCLUDEPATH += $$PWD/
-DEPENDPATH += $$PWD/
-
-win32:!win32-g++: PRE_TARGETDEPS += $$PWD/lib/mvDisplay.lib
+LIBS += -LC:\\Users\\User\\Lvil\\Work\\AIEA_Camera\\Qt5.4_2\\Camera_2\\camera_driver\\lib \
+-lmvDeviceManager \
+-lmvDisplay \
